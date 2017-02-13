@@ -1,8 +1,8 @@
 Gourmet::Application.routes.draw do
   root "foods#posts"
   get "/:category" => 'foods#posts_category'
-	get "foods/show"
-  get "foods/write"
+  get "foods/show/:id" => 'foods#show'
+	get "foods/write"
   get "foods/write_complete"
   get "foods/edit"
   get "foods/edit_complete"
