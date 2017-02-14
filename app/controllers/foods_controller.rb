@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
 	before_action :login_check
   skip_before_action  :login_check, :only => [:posts, :posts_category, :show]
+
 	def posts
 		@posts = Post.all
   end
@@ -33,6 +34,7 @@ class FoodsController < ApplicationController
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
+		post.image = params[:image]
     if post.save
       flash[:alert] = "저장되었습니다."
       redirect_to "/foods/show/#{post.id}"
