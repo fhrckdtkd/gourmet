@@ -28,13 +28,13 @@ class FoodsController < ApplicationController
   def write
   end
 
-  def write_complete
-		post = Post.new
-		post.user_id = session[:user_id]
+	def write_complete
+    post = Post.new
+    post.user_id = session[:user_id]
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
-		post.image = params[:image]
+    post.image = params[:image]
     if post.save
       flash[:alert] = "저장되었습니다."
       redirect_to "/foods/show/#{post.id}"
